@@ -1,8 +1,5 @@
 let clockApp = () => {
-    const hoursDisplay = document.querySelector("#hours");
-    const minutesDisplay = document.querySelector("#minutes");
-    const secondsDisplay = document.querySelector("#seconds");
-    const meridiemDisplay = document.querySelector("#meridiem");
+    const displayTime = document.querySelector("#time");
 
     function twelveHourFormatTime() {
         const time = new Date();
@@ -10,16 +7,11 @@ let clockApp = () => {
         const minutes = time.getMinutes();
         const seconds = time.getSeconds();
         if (hours > 12) {
-            hoursDisplay.textContent = hours - 12;
-            meridiemDisplay.textContent = "PM";
+            displayTime.textContent = `${hours - 12} : ${minutes} : ${seconds}  PM`;
         }
         else {
-            hoursDisplay.textContent = hours;
-            meridiemDisplay.textContent = "AM";
+            displayTime.textContent = `${hours} : ${minutes} : ${seconds}  AM`;
         }
-        minutesDisplay.textContent = minutes;
-        secondsDisplay.textContent = seconds;
-
     }
     setInterval(twelveHourFormatTime, 1000);
 }
